@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+
+if [ $BRANCH_NAME == '(no branch)' ]
+then
+  return 0
+fi
+
+echo "Realted redmine issue: "
+exec < /dev/tty && read tid
+
+re='^[0-9]+$'
+if [[ $tid =~ $re ]] ; then
+sed -i "2 s/^/\nhttps:\/\/redmine.net\/issues\/$tid #$tid\n/" $1
+fi
+
