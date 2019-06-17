@@ -2,9 +2,9 @@
 
 BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
 
-if [ "$BRANCH_NAME" == '(no branch)' ]
+if [[ "$BRANCH_NAME" == *"no branch"* ]]
 then
-  return 0
+  exit 0
 fi
 
 echo "Realted redmine issue: "
