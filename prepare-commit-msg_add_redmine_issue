@@ -7,7 +7,7 @@ then
   exit 0
 fi
 
-echo "Realted redmine issue: "
+echo "Related redmine issue: "
 exec < /dev/tty && read tid
 
 re='^[0-9]+$'
